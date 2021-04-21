@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Convert degrees</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <canvas id="confetti-canvas"></canvas>
+
+    <div id="container">
+      <aside id="sidebar">
+        <h2>Sidebar</h2>
+        <nav>
+          <ul>
+            <li>
+              <a href="index.html">Home page</a>
+              <a href="degrees.html">Convert degrees</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main id="main-content">
+        <h1>Convert between degrees</h1>
+        <p>Enter your value below to automatically convert to the other unit.</p>
+        <section id="first">
+          <form action="#" id="degrees">
+            <label for="celsius">Celsius</label>
+            <input inputmode="numeric" type="text" id="celsius" />
+            <label for="fahrenheit">Fahrenheit</label>
+            <input inputmode="numeric" type="text" id="fahrenheit" />
+
+            <div id="input-alert" role="alert" aria-hidden>
+              <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M12 14.93a1.45 1.45 0 00-.83.65 2 2 0 00-.08.22 1.18 1.18 0 00.8 1.44h.2a1.23 1.23 0 001.29-1.16 1.16 1.16 0 00-.31-.89 1 1 0 00-1.07-.26zM11.64 13c.32.26 1.4.15 1.4-.52.09-1.1.22-5.55-.29-6.41a.21.21 0 00-.12-.05 1.25 1.25 0 00-.93 0c-.68.23-.55 2.27-.55 3 .04 1.15-.28 3.24.49 3.98z"
+                />
+                <path
+                  d="M22 11.67A9.7 9.7 0 0012.75 2h-.27C7.55 1.82 2.39 5.26 2 11s4 10.8 9 11a10.47 10.47 0 0011-9.51v-.53a.66.66 0 000-.29zm-10.39 8.92h-.48c-4.27-.16-8.06-5-7.85-9.58S7.9 3.37 12 3.36c4.88 0 8.51 3.49 8.64 8.64v.08a8.89 8.89 0 01-9.03 8.51z"
+                />
+              </svg>
+              Please enter a valid number.
+            </div>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      $celsius = document.getElementById('celsius')
+      $fahrenheit = document.getElementById('fahrenheit')
+
+      /**
+       * @param {KeyboardEvent} e
+       */
+      function onlyNumbers(e) {
+        console.log(e)
+
+        if (!e.ctrlKey && !e.key.match(/([0-9]|Backspace|-|Tab|Arrow(Left|Right|Up|Down)|\.|Home|End)/i)) {
+          e.preventDefault()
+          e.stopPropagation()
+        }
+      }
+
+      $celsius.addEventListener('keydown', onlyNumbers)
+      $fahrenheit.addEventListener('keydown', onlyNumbers)
+
+      const getF = C => (C * (9 / 5) + 32).toFixed(2)
+      const getC = F => ((F - 32) * (5 / 9)).toFixed(2)
+
+      $celsius.addEventListener('input', e => {
+        const val = e.target.value
+        const numVal = parseFloat(val) || 0
+
+        $fahrenheit.value = getF(numVal) || 0
+      })
+
+      $fahrenheit.addEventListener('input', e => {
+        const val = e.target.value
+        const numVal = parseFloat(val) || 0
+
+        $celsius.value = getC(numVal)
+      })
+    </script>
+  </body>
+</html>

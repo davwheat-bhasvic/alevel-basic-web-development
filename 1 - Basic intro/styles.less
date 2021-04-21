@@ -1,0 +1,187 @@
+@text-color: #000;
+
+@h1-color: #006;
+@h2-color: #606;
+
+@link-color: rgb(169, 4, 4);
+@link-color-hover: rgb(219, 44, 44);
+
+@z-index--canvas: 1;
+@z-index--content: 2;
+
+@faded-bg: #f5f5f5;
+
+@error-color: #d60000;
+
+html {
+  font-family: Jost, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  color: @text-color;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+[aria-hidden] {
+  display: none !important;
+}
+
+#confetti-canvas {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: @z-index--canvas;
+  opacity: 0;
+  width: 100vw;
+  height: 100vh;
+  transition: opacity 1s ease-out;
+
+  &.celebrating {
+    opacity: 1;
+    transition: none;
+  }
+}
+
+h1 {
+  color: @h1-color;
+}
+
+h2 {
+  color: @h2-color;
+}
+
+a:any-link {
+  color: @link-color;
+}
+
+aside {
+  nav {
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+
+      li {
+        margin-bottom: 4px;
+      }
+    }
+  }
+}
+
+#container {
+  display: grid;
+  grid-template-columns: minmax(auto, 150px) 1fr;
+  gap: 32px;
+  padding: 16px 32px;
+  position: relative;
+  z-index: @z-index--content;
+
+  @media (max-width: 750px) {
+    grid-template-columns: minmax(auto, 125px) 1fr;
+  }
+
+  @media (max-width: 500px) {
+    grid-template-columns: minmax(auto, 100px) 1fr;
+    padding: 12px 16px;
+  }
+}
+
+main {
+  section {
+    margin: 24px 0;
+  }
+}
+
+#date-container {
+  display: block;
+  background-color: @faded-bg;
+  padding: 8px 12px;
+  line-height: 1;
+  width: auto;
+  border: 2px dotted rgba(128, 128, 128, 0.4);
+
+  &:empty::after {
+    content: 'The date will appear here when you press the button.';
+    display: block;
+  }
+}
+
+form {
+  fieldset.radios {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+
+      input[type='radio'] {
+        margin-right: 16px;
+      }
+    }
+  }
+
+  &#degrees {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    align-items: center;
+
+    label {
+      display: block;
+    }
+
+    input[type='text'] {
+      margin-left: 4px;
+      padding: 8px 12px;
+      border: 2px solid black;
+
+      outline: none;
+      border-radius: 0;
+
+      transition: border-color 0.2s ease-out;
+
+      &:focus {
+        border-color: rgb(41, 114, 156);
+      }
+
+      // direction: rtl;
+    }
+
+    #input-alert {
+      width: 100%;
+      padding: 16px;
+      background-color: @faded-bg;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+
+      border-top: 4px solid @error-color;
+
+      &::before,
+      .icon {
+        --size: 48px;
+
+        display: block;
+        width: var(--size);
+        height: var(--size);
+        fill: @error-color;
+      }
+    }
+  }
+}

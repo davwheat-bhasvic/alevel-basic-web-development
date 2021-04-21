@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Example Basic Page</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Preload the angry emoji -->
+    <link rel="prefetch1" href="angry.svg" as="image" type="image/svg+xml" />
+    <link rel="preload" href="script.js" as="script" />
+    <link rel="preload" href="confetti.js" as="script" />
+  </head>
+
+  <body>
+    <canvas id="confetti-canvas"></canvas>
+
+    <div id="container">
+      <aside id="sidebar">
+        <h2>Sidebar</h2>
+        <nav>
+          <ul>
+            <li>
+              <a href="index.html">Home page</a>
+              <a href="degrees.html">Convert degrees</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main id="main-content">
+        <h1>David's cool site</h1>
+        <section id="first">
+          <h1>First section</h1>
+          <p>This is normal body paragraph text in &lt;p&gt; tags</p>
+          <ol>
+            <li>I can have numbered points when I want to create</li>
+            <li>a list &lt;li&gt; of things</li>
+            <li>like this</li>
+          </ol>
+          <ul>
+            <li>or I can have</li>
+            <li>this type of bulletpoint list</li>
+            <li>and it has the same &lt;li&gt; inner tags but different outer tags &lt;ul&gt; or &lt;ol&gt;</li>
+          </ul>
+          <p>
+            <a href="http://www.google.co.uk"> A hyperlink is in &lt;a&gt; tags </a>
+          </p>
+        </section>
+
+        <section id="date">
+          <h2>Date</h2>
+          <p>When you press the button below, the date will show! It's pretty cool!</p>
+          <button id="date-button">Show the date</button>
+          <p id="date-container"></p>
+        </section>
+
+        <section id="quiz">
+          <h2>Quiz</h2>
+          <p>This is a quiz! If you don't get 100%, then you're just bad.</p>
+          <form>
+            <fieldset class="radios">
+              <legend>Is David cool?</legend>
+              <label>
+                <input name="cool" value="yes" type="radio" />
+                Yes
+              </label>
+              <label>
+                <input name="cool" value="yes" type="radio" />
+                Of course
+              </label>
+              <label>
+                <input name="cool" value="yes" type="radio" />
+                Absolutely
+              </label>
+              <label>
+                <input name="cool" value="no" type="radio" />
+                No
+              </label>
+            </fieldset>
+            <button type="submit">Check answers</button>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <script src="confetti.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
