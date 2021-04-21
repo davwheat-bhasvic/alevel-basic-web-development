@@ -100,8 +100,6 @@ function willElBeOutsideParent(element, deltaX, deltaY) {
   const parentBounds = parent.getBoundingClientRect()
   const elBounds = element.getBoundingClientRect()
 
-  console.log(elBounds, parentBounds)
-
   return (
     elBounds.right + deltaX > parentBounds.right ||
     elBounds.left + deltaX < parentBounds.left ||
