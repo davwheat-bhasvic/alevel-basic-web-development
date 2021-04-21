@@ -1,0 +1,14 @@
+{
+  "name": "alevel-basic-web",
+  "version": "1.0.0",
+  "repository": "https://github.com/davwheat-bhasvic/alevel-basic-web-development.git",
+  "author": "David Wheatley <hi@davwheat.dev>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "prettier": "^2.2.1"
+  },
+  "scripts": {
+    "format": "prettier --write \"**/*.{js,less,html,json,md}\""
+  }
+}
