@@ -59,3 +59,34 @@ a:any-link {
   font-weight: 900;
   text-align: center;
 }
+
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+#css-sucks {
+  font-size: 36px;
+  color: #fff;
+  height: 1em;
+  position: relative;
+  line-height: 1;
+  width: 140px;
+  border: 2px solid #fff;
+
+  padding: 4px;
+
+  margin-top: 32px;
+  margin-bottom: 32px;
+
+  &::after {
+    content: attr(data-text);
+    display: block;
+    white-space: nowrap;
+  }
+}
