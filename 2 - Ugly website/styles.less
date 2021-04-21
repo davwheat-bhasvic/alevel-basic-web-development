@@ -1,0 +1,73 @@
+body {
+  background: linear-gradient(
+    to bottom right,
+    #da1ab0 0%,
+    rgb(40, 40, 219) 100%
+  );
+  background-size: 150px 150px;
+  margin: 0;
+  padding: 48px;
+  overflow: hidden;
+  font-size: 18px;
+  font-family: "Comic Sans MS";
+}
+
+.blink {
+  animation: flash 1s linear infinite;
+}
+
+.ticker {
+  animation: ticker 8s linear infinite;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  margin-bottom: 0.2em;
+  font-weight: 900;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 8px;
+  color: white;
+}
+
+.bordered {
+  border: 24px solid;
+  border-image: url(animated-border.svg) 32 round;
+}
+
+@keyframes flash {
+  0%,
+  49.99% {
+    opacity: 0;
+  }
+
+  50%,
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes ticker {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(-100vw);
+  }
+
+  50.01% {
+    transform: translateX(100vw);
+  }
+}
+
+@import "main.less";

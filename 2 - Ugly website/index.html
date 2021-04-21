@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>My awesome site</title>
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1 class="ticker">Welcome to my awesome website!</h1>
+    <div class="split-sect-3">
+      <section class="bordered">
+        <p>
+          This is a horrific site created using modern HTML and CSS. All of the
+          styling choices you see here are created using features from HTML5 and
+          new CSS features.
+        </p>
+      </section>
+      <section class="bordered">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
+          delectus quas aperiam quae repellat, optio voluptate nesciunt minima.
+          Animi quas a, ipsam ducimus magni minima voluptate dolorum quis maxime
+          amet!
+        </p>
+      </section>
+      <section class="bordered">
+        <h2 class="blink">Relive your memories of the 2000s!</h2>
+        <a href="https://sky-epg.davwheat.dev/?utm_source=bhasvic">
+          View a web simulation of a Sky+ box
+        </a>
+        <img src="sky.png" alt="Image of a Sky+ box with a remote.">
+      </section>
+    </div>
+
+    <article id="click-the-button">
+      <div id="click-the-button--btn">
+        <button>Click me!</button>
+      </div>
+    </article>
+
+    <div id="bg-music">
+      <p>Sky EPG Music from 2012</p>
+      <audio autoplay controls loop>
+        <source src="sky-plus-epg-music-2012.mp3" type="audio/mpeg" />
+      </audio>
+    </div>
+
+    <script src="scroll-title.js"></script>
+    <script src="move-the-button.js"></script>
+
+    <script>
+      scrollTitle("My awesome site");
+    </script>
+  </body>
+</html>
